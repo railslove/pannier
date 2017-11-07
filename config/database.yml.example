@@ -2,8 +2,8 @@ default: &default
   adapter: sqlite3
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: rails_user
-  password: "004711"
+  username: root
+  password: 
   #socket: /var/run/mysqld/mysqld.sockd
 
 development:
@@ -16,6 +16,6 @@ test:
 
 production:
   <<: *default
-  database: pannier_production
+  database: db/production.sqlite3
   username: rails_user
   password: <%= ENV['DATABASE_PASSWORD'] %>
