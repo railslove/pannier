@@ -1,4 +1,4 @@
 class Expense < ApplicationRecord
   belongs_to :user
-  has_many :users, through: 'ExpenseUser'
+  has_many :user_expenses
 end
