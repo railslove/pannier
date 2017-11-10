@@ -1,5 +1,8 @@
 <h1>Login</h1>
 
-<%= render 'form', user: @user %>
+  <%= label(:email, :user_email) %>
+  <%= text_field(:email, :user_email, size: 20) %>
+
+
 
 <%= link_to 'Back', root_path %>

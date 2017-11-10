@@ -59,7 +59,9 @@ class UsersController < ApplicationController
     end
   end
 
-  def login; end
+  def login
+    # @user = User.new(user_params)
+  end
 
   private
 
