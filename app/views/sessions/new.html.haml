@@ -1,2 +1,9 @@
-%h1 Sessions#new
-%p Find me in app/views/sessions/new.html.erb
+%h1 Log In
+%p#alert= alert
+= form_tag session_path do
+  .field
+    = label_tag :email
+    %br/
+    = text_field_tag :email, params[:email]
+    %br/
+  .actions= submit_tag "Log In"
