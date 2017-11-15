@@ -1,7 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  before_action :load_user
+  # require login
+
+  before_action :require_login
 
   def logged_in?
     @current_user.present?
@@ -9,11 +11,9 @@ class ApplicationController < ActionController::Base
 
   helper_method :logged_in?
 
-  def load_user
-    if session[:user_id]
-      @current_user = @current_user || User.find(session[:user_id])
-    end
+  def require_login
+    @current_user ||= User.find(session[:user_id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_to :root, notice: 'Login required!'
   end
-
-
 end

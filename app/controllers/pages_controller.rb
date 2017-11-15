@@ -1,5 +1,3 @@
 class PagesController < ApplicationController
-  def home
-    render 'pages/home'
-  end
+  skip_before_action :require_login
 end
