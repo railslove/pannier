@@ -1,8 +1,7 @@
+= link_to 'Edit', edit_user_path
 %p#notice= notice
 %h1 Hallo, das ist deine Übersicht!
 %p
   %strong Email:
   = @user.email
-= link_to 'Edit', edit_user_path(@user)
-|
-= link_to 'Back', user_path
+  = link_to 'Create new Expense', new_expense_path
