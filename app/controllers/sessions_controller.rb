@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
 
       flash[:notice] = 'Logged in!'
-      redirect_to :root # Hier umleiten auf user#show
+      redirect_to controller: 'users', action: 'show' # user_show_path
     else
       flash.now[:alert] = 'Email is invalid'
       render :new

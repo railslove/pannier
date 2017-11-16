@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resource :session
   resources :expenses
+  resource :user
 
   root 'pages#home'
 
