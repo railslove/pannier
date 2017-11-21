@@ -5,7 +5,9 @@ gem 'rails', '~> 5.1.4'
 
 gem 'haml-rails', '~> 1.0'
 
-gem 'bootstrap', '~> 4.0.0.beta2'
+gem 'bootstrap', '~> 4.0.0.beta2.1'
+
+gem 'jquery-rails'
 
 gem 'money-rails', '~>1'
 # Use mysql as the database for Active Record
