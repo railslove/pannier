@@ -1,5 +1,6 @@
 !!!
 %html
+
   %head
     %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %meta{name: "viewport", content: "width=device-width, initial-scale=1"} 
@@ -8,11 +9,25 @@
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  %body
-    #user_header
-      - if logged_in?
-        = link_to 'Logout', session_path, method: :delete
-      - else
-        = link_to "Log In", new_session_path
 
-    = yield
+  %body{class: "#{'bgimage' if controller_name == 'pages'}"}
+    %header
+      %nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+        .container
+          = link_to :root, class: "navbar-brand" do
+            = image_tag("Logo.png")
+          .navbar-nav.ml-auto
+            - if logged_in?
+              = link_to 'Logout', session_path, method: :delete, class: "btn btn-outline-danger"
+            - else
+              = link_to 'Sign up', new_session_path, class: "btn btn-orange btn-margin-right"
+              or
+              = link_to 'Login', new_session_path, class: "btn btn-outline-success btn-margin-left"
+
+    %main.container
+      = yield
+
+    %footer
+      .container
+        %p.float-right.no-margin-bottom
+          %a{href: "#"} Back to top

@@ -1,9 +1,10 @@
-%h1 Log In
-%p#alert= alert
-= form_tag session_path do
-  .field
-    = label_tag :email
-    %br/
-    = text_field_tag :email, params[:email]
-    %br/
-  .actions= submit_tag "Log In"
+.jumbotron
+  .row
+    .col-lg-3
+    .col-lg-6
+      %h1 Log In
+      %p#alert= alert
+      = form_tag session_path do
+        .field
+          = text_field_tag :email, params[:email], placeholder:"Email address"
+        .actions.btn-margin-top= submit_tag "Log In"

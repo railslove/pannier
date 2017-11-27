@@ -1,2 +1,76 @@
-// Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin-bottom: 60px;
+}
+header {
+  color: white;
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  background-color: #343a40;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    margin-bottom: 0px;
+    font-weight: bold;
+}
+h1 {
+  font-size: 30px;
+  line-height: 36px;
+}
+.bgimage {
+  background: url(image_path("background_donkey.jpeg"));
+  background-size: cover;
+}
+.jumbotron {
+  background: rgba(255, 255, 255, 0.8)
+}
+.navbar-brand img {
+  max-height: 20px;
+}
+.headline h1 {
+  text-align: center;
+  font-size: 50px;
+  white-space: nowrap;
+}
+.longer-headline {
+  text-align: center;
+  font-size: 21px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  line-height: 26px;
+}
+.btn-large {
+  padding: 20px 50px;
+}
+.btn-center {
+  text-align: center;
+}
+.btn-margin-top {
+  margin-top: 5px;
+}
+.btn-margin-left {
+  margin-left: 5px;
+}
+.btn-margin-right {
+  margin-right: 5px;
+}
+.no-margin-bottom {
+  margin-bottom: 0;
+}
+.btn-orange {
+    background: #ff652f;
+    color: #fff;
+    text-shadow: 0 -1px 0 #c83400;
+}
