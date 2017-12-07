@@ -2,9 +2,9 @@
   .row
     .col-lg-3
     .col-lg-6
-      %h1 Log In
-      %p#alert= alert
+      %h1 Login
+      /%p#alert.alert-danger= alert
       = form_tag session_path do
         .field
           = text_field_tag :email, params[:email], placeholder:"Email address"
-        .actions.btn-margin-top= submit_tag "Log In"
+        .actions.btn-margin-top= submit_tag "Sign in", class: "btn btn-blue"

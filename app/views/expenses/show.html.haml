@@ -1,0 +1,10 @@
+%h2 Show Page
+%table{summary:"Expenses detail view"}
+  %tr
+    %th description
+    %td= @expense.description
+  - @expense.bills.each do |bill|
+    %tr
+      %th user
+      %td= bill.user.email
+      %td= bill.amount

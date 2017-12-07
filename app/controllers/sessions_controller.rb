@@ -1,3 +1,4 @@
+
 class SessionsController < ApplicationController
   skip_before_action :require_login, only: %i[new create]
 
@@ -7,17 +8,17 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user
       session[:user_id] = user.id
-
-      flash[:notice] = 'Logged in!'
+      flash[:secondary] = 'Herzlich willkommen zurück!'
       redirect_to controller: 'users', action: 'show' # user_show_path
     else
-      flash.now[:alert] = 'Email is invalid'
+      flash[:danger] = 'Email is invalid.'
       render :new
     end
   end
 
   def destroy
     session[:user_id] = nil
-    redirect_to :root, notice: 'Logged out!'
+    flash[:danger] = 'Logged out!'
+    redirect_to :root
   end
 end

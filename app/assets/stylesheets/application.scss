@@ -1,3 +1,5 @@
+$primary: #6C4fCC;
+$secondary: #6ECEBE;
 @import "bootstrap";
 
 html {
@@ -7,16 +9,15 @@ html {
 body {
   margin-bottom: 60px;
 }
-header {
-  color: white;
-}
 footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 60px;
-  line-height: 60px;
-  background-color: #343a40;
+  line-height: 55px;
+  background: rgba(255, 255, 255, 0.6);
+  -webkit-box-shadow: 0px -3px 7px 0px rgba(0,0,0,0.6);
+  -moz-box-shadow: 0px -3px 7px 0px rgba(0,0,0,0.6);
+  box-shadow: 0px 3px -7px 0px rgba(0,0,0,0.6);
 }
 h1, h2, h3, h4, h5, h6 {
     margin: 0;
@@ -27,8 +28,14 @@ h1 {
   font-size: 30px;
   line-height: 36px;
 }
+.navbar {
+  -webkit-box-shadow: 0px 3px 7px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 3px 7px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 3px 7px 0px rgba(0,0,0,0.75);
+  margin-bottom: 10px;
+}
 .bgimage {
-  background: url(image_path("background_donkey.jpeg"));
+  background: url(image_path("background_woman.jpg"));
   background-size: cover;
 }
 .jumbotron {
@@ -51,14 +58,14 @@ h1 {
   padding-right: 20px;
   line-height: 26px;
 }
-.btn-large {
+.btn-xlg {
   padding: 20px 50px;
 }
 .btn-center {
   text-align: center;
 }
 .btn-margin-top {
-  margin-top: 5px;
+  margin-top: 10px;
 }
 .btn-margin-left {
   margin-left: 5px;
@@ -69,8 +76,20 @@ h1 {
 .no-margin-bottom {
   margin-bottom: 0;
 }
-.btn-orange {
-    background: #ff652f;
+.btn-cyan {
+    background: #6ecebe;
     color: #fff;
-    text-shadow: 0 -1px 0 #c83400;
+}
+.btn-blue {
+    background: blue;
+    color: #fff;
+}
+.top-margin-header {
+  padding-top: 7px;
+}
+.center {
+  text-align: center;
+}
+.what {
+  background: red;
 }

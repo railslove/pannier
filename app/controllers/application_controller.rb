@@ -16,4 +16,6 @@ class ApplicationController < ActionController::Base
   rescue ActiveRecord::RecordNotFound
     redirect_to :root, notice: 'Login required!'
   end
+
+  attr_reader :current_user
 end

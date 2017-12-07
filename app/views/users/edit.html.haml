@@ -1,5 +1,7 @@
-%h1 Editing User
-= render 'form', user: @user
-= link_to 'Show', @user
-|
-= link_to 'Back', users_path
+.jumbotron
+  .row
+    .col-lg-3
+    .col-lg-6
+      %h1 Editing User
+      = render 'form', user: @user
+      = link_to 'Show', @user

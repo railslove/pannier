@@ -1,4 +1,4 @@
 class Bill < ApplicationRecord
   belongs_to :expense
-  has_many :users
+  belongs_to :user
 end
