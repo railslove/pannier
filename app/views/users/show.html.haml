@@ -1,18 +1,51 @@
 %p#notice.alert-success= alert= notice
-%h1 Hallo, das ist deine Übersicht!
-%p
-  %strong Email:
-  = @user.email
-  = link_to 'Create new Expense', new_expense_path
+%h1 Hallo, that's your overview!
+
+%strong Email:
+= @user.email
+
+%hr/
+%b Your Total @ Railslove
+= @total_value
+
+%hr/
+.row
+  .col-lg-6
+    %b Your Bills
+    %table.table
+      %thead.thead-light
+        %tr
+          %th{scope: "col"} Description
+          %th{scope: "col"} Cent
+          %th{scope: "col"} Date
+      %tbody
+        - @current_user_bills.each do |bill|
+          %tr
+            %td= bill.expense.description
+            %td= bill.try :amount
+            %td= bill.created_at
+    = paginate @current_user_bills
+    = page_entries_info @current_user_bills
 
 
-  %table.listing{:summary => "Page list"}
-    %tr.header
-      %th Description
-    - @expenses.each do |expense|
-      %tr
-        %td= expense.description
-        %td.actions
-          = link_to("Show", expense_path(expense), class: 'action show')
-          /= link_to("Edit", edit_expense_path(expense), class: 'action edit')
-          /= link_to("Delete", delete_expense_path(expense), class: 'action delete')
+
+  .col-lg-6
+    %b Your Expenses
+    %table.table
+      %thead.thead-light
+        %tr
+          %th{scope: "col"} Description
+          %th{scope: "col"} Date
+          %th{scope: "col"} Action
+      %tbody
+        - @current_user_expenses.each do |expense|
+          %tr
+            %td= expense.description
+            %td= expense.created_at
+            %td.actions
+              = link_to("Show", expense_path(expense), class: 'action show')
+              /= link_to("Edit", edit_expense_path(expense), class: 'action edit')
+              /= link_to("Delete", delete_expense_path(expense), class: 'action delete')
+
+
+

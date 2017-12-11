@@ -10,7 +10,10 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @expenses = Expense.all
+    @current_user_expenses = current_user.expenses.order(:created_at)
+    @current_user_bills = current_user.bills.order(:created_at).page(params[:page]).per(5)
+    byebug
+    @total_value = current_user.total_value_from_bills
   end
 
   # GET /users/new

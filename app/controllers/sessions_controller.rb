@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user
       session[:user_id] = user.id
-      flash[:secondary] = 'Herzlich willkommen zurück!'
+      flash[:secondary] = 'Welcome back!'
       redirect_to controller: 'users', action: 'show' # user_show_path
     else
       flash[:danger] = 'Email is invalid.'

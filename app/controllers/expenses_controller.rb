@@ -1,7 +1,7 @@
 class ExpensesController < ApplicationController
   def new
     @expense = Expense.new
-    @users = User.all
+    @users = User.where.not(id: current_user)
   end
 
   def create

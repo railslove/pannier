@@ -8,7 +8,12 @@ class User < ApplicationRecord
                      length: { maximum: 50 },
                      uniqueness: true,
                      confirmation: true
+
   def except_current_user(user_id)
     where.not(id: user_id)
+  end
+
+  def total_value_from_bills
+    bills.sum(:amount_cents)
   end
 end

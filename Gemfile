@@ -10,6 +10,8 @@ gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'jquery-rails'
 
 gem 'money-rails', '~>1'
+
+gem 'kaminari'
 # Use mysql as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
