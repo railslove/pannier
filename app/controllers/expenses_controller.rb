@@ -7,7 +7,7 @@ class ExpensesController < ApplicationController
   def create
     @expense = current_user.expenses.create(expense_params)
 
-    @expense.create_bills_with_current_user_as_creditor(params[:amount].to_i, params[:user_ids])
+    @expense.create_bills_with_current_user_as_creditor(Money.new(params[:amount].tr(',', '.').to_f * 100.to_i, 'EUR'), params[:user_ids])
 
     flash[:secondary] = 'Expense created!'
     redirect_to @expense

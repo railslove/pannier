@@ -16,15 +16,15 @@
       %thead.thead-light
         %tr
           %th{scope: "col"} Description
-          %th{scope: "col"} Cent
+          %th{scope: "col"} Amount
           %th{scope: "col"} Date
       %tbody
         - @current_user_bills.each do |bill|
           %tr
             %td= bill.expense.description
-            %td= bill.try :amount
+            %td= bill.amount.format(symbol_position: :after)
             %td= bill.created_at
-    = paginate @current_user_bills
+    = paginate @current_user_bills, param_name: 'bill_page'
     = page_entries_info @current_user_bills
 
 
@@ -46,6 +46,8 @@
               = link_to("Show", expense_path(expense), class: 'action show')
               /= link_to("Edit", edit_expense_path(expense), class: 'action edit')
               /= link_to("Delete", delete_expense_path(expense), class: 'action delete')
+    = paginate @current_user_expenses, param_name: 'exp_page'
+    = page_entries_info @current_user_expenses
 
 
 
