@@ -1,7 +1,10 @@
 = form_for @expense do |f|
   = f.text_field :description, placeholder: "description"
   %br
-  = select_tag :user_ids, options_from_collection_for_select(@users, :id, :email), multiple: true
+  = f.check_box :include_current_user_in_bill, checked: true
+  include me in the bill
   %br
-  = text_field_tag :amount, nil, placeholder: 'amount'
+  = f.select :user_ids, options_from_collection_for_select(@users, :id, :email), {include_hidden: false}, multiple: true
+  %br
+  = f.text_field :amount, placeholder: 'amount'
   .actions.btn-margin-top= f.submit "Create", class: "btn btn-primary"

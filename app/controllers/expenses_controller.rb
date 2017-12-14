@@ -7,7 +7,7 @@ class ExpensesController < ApplicationController
   def create
     @expense = current_user.expenses.create(expense_params)
 
-    @expense.create_bills_with_current_user_as_creditor(Money.new(params[:amount].tr(',', '.').to_f * 100.to_i, 'EUR'), params[:user_ids])
+    @expense.create_bills
 
     flash[:secondary] = 'Expense created!'
     redirect_to @expense
@@ -19,8 +19,7 @@ class ExpensesController < ApplicationController
 
   private
 
-  # Never trust parameters from the scary internet, only allow the white list through.
   def expense_params
-    params.require(:expense).permit(:description)
+    params.require(:expense).permit(:description, :amount, :include_current_user_in_bill, user_ids: [])
   end
 end
